@@ -188,22 +188,73 @@ var MSHard=function($scope) {
                             }
                     }
             }
-       $scope.retry=function(){
-           window.location.reload();
-       }
+            var sessionscore=0;
+       var temp=0;
+    var count=0;
     $scope.uncoverSpot = function(spot) {
+         var multiplier=1.2;
+        var addScore=multiplier*basScore;
+        if (spot.isCovered==true)
+        {
+        if(spot.content=="empty"){
+            sessionscore+=addScore;
+        }
+         if(spot.content=="1"){
+           sessionscore+=addScore*1.5;
+        }
+                 if(spot.content=="2"){
+            sessionscore+=addScore*2;
+        }
+                 if(spot.content=="3"){
+           sessionscore+=addScore*3;
+        }
+               if(spot.content=="4"){
+           sessionscore+=addScore*4;
+        }
+               if(spot.content=="5"){
+           sessionscore+=addScore*5;
+        }
+               if(spot.content=="6"){
+            sessionscore+=addScore*6;
+        }
+               if(spot.content=="7"){
+           sessionscore+=addScore*7;
+        }
+               if(spot.content=="8"){
+           sessionscore+=addScore*8;
+        }
+         if(spot.content=="9"){
+            sessionscore+=addScore*9;
+        }
+        }
         spot.isCovered = false;
         
         if(spot.content == "mine") {
             $scope.hasLostMessageVisible = true;
+            if(count==0)
+               {
+            temp=sessionscore;
+                   sessionscore=temp;
+                    lossTrack();
+               }
+            count++;
         bom.play();
             bgm.stop();
-            
         } 
         else {
             if(hasWon($scope.minefield)) {
                 $scope.isWinMessageVisible = true;
+            temp=sessionscore;
+                sessionscore=temp;
+            winTrack();
+            
             }
+        }
+    if(temp==0 & count==0)
+        {
+            $scope.score=sessionscore;
+             curScore=sessionscore;
+
         }
     };
 
