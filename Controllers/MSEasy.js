@@ -1,12 +1,3 @@
-function winTrack()
-{
-    counterw++;
-}
-function lossTrack()
-{
-counterl++
-
-}
 
 (function(){
 

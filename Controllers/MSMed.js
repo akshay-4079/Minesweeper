@@ -1,3 +1,9 @@
+
+function lossTrack()
+{
+counterl++;
+localStorage.setItem("loss",counterl);
+}
 (function(){
     var app= angular.module("UIX");
 function sound(src) {

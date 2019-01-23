@@ -1,16 +1,17 @@
 (function(){
     var app=angular.module("UIX");
     function display(){
-    document.getElementById("wins").innerHTML=counterw;
-    document.getElementById("loss").innerHTML=counterl;
+    document.getElementById("wins").innerHTML=localStorage.getItem("win");
+    document.getElementById("loss").innerHTML=localStorage.getItem("loss");
         if(curScore>hiScore)
             {
                 hiScore=curScore;
                 document.getElementById("score").innerHTML=curScore;
+            localStorage.setItem("score",hiScore);
             }
         else
             {
-                document.getElementById("score").innerHTML=hiScore;
+                document.getElementById("score").innerHTML=localStorage.getItem("score");
             }
 }
     var UI=function($scope)

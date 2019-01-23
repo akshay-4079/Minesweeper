@@ -3,6 +3,16 @@ var counterl=0;
 var curScore=0;
 var hiScore=0;
 var basScore=100;
+function winTrack()
+{
+    counterw++;
+    localStorage.setItem("win",counterw);
+}
+function lossTrack()
+{
+counterl++;
+localStorage.setItem("loss",counterl);
+}
 (function(){
     
  var app=angular.module("UIX",["ngRoute"]);   
@@ -50,4 +60,5 @@ function Changebck(a){
      if (a=='i4')
     {document.getElementById('area').style.backgroundImage="url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/geometric-8-bit-game_wjbjcv-r__F0000.png)";}
 }
+
 
